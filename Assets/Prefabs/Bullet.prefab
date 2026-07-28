@@ -108,7 +108,7 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -126,9 +126,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3e2038ad72cd89448c5a96bcc98d6f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Bullet
-  player: {fileID: 1783122923778144863, guid: 25697c69b7c419f45adf5f6c66169a0f, type: 3}
+  player: {fileID: 1906624282132523012, guid: 25697c69b7c419f45adf5f6c66169a0f, type: 3}
+  FirePos: {fileID: 0}
   MuzzleFlashObj: {fileID: 100006, guid: 405bdb247d636f94491779a61e93b876, type: 3}
+  HitEffect: {fileID: 100002, guid: 2c5e3da4fb1598744903126b1a870ea7, type: 3}
   speed: 40
+  HitLayer:
+    serializedVersion: 2
+    m_Bits: 200
+  hitLayers:
+  - Ground
+  - Wall
 --- !u!54 &-4621616631104531422
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -155,4 +163,4 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 48
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1

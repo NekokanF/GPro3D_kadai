@@ -1,10 +1,15 @@
+using Mono.Cecil.Cil;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    [SerializeField] GameObject player;
+    [SerializeField] public Player player;
+    [SerializeField] GameObject FirePos;
     [SerializeField] GameObject MuzzleFlashObj;
+    [SerializeField] GameObject HitEffect;
     [SerializeField] float speed;
+    [SerializeField] LayerMask HitLayer;
+    [SerializeField] string[] hitLayers;
 
     Rigidbody rb;
 
@@ -12,14 +17,30 @@ public class Bullet : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        player = GameObject.Find("Player");
+        FirePos = GameObject.Find("FirePosition");
         Instantiate(MuzzleFlashObj,transform.position, Quaternion.identity);
-        rb.AddForce(player.transform.forward * speed, ForceMode.Impulse);
+        rb.AddForce(FirePos.transform.forward * speed, ForceMode.Impulse);
+        Destroy(gameObject, 4f);
+        Debug.Log(rb);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter(Collider other)
     {
-        
+        foreach (string layerName in hitLayers)
+        {
+            if (other.gameObject.layer == LayerMask.NameToLayer(layerName))
+            {
+                Destroy(gameObject);
+                return;
+            }
+        }
+
+        if (other.gameObject.layer == LayerMask.NameToLayer("Enemy"))
+        {
+            var enemy = other.GetComponent<EnemyClass>();
+            enemy.CurrentHP -= player.weapon.Damage;
+            Instantiate(HitEffect,enemy.HitPos.transform.position, Quaternion.identity);
+            Destroy(gameObject);
+        }
     }
 }
