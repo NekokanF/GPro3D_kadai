@@ -21,7 +21,6 @@ public class Bullet : MonoBehaviour
         Instantiate(MuzzleFlashObj,transform.position, Quaternion.identity);
         rb.AddForce(FirePos.transform.forward * speed, ForceMode.Impulse);
         Destroy(gameObject, 4f);
-        Debug.Log(rb);
     }
 
     private void OnTriggerEnter(Collider other)
