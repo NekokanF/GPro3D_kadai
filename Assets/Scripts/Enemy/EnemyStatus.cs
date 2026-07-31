@@ -4,4 +4,5 @@ using UnityEngine;
 public class EnemyStatus : ScriptableObject
 {
     public int MaxHP;
+    public int Damage;
 }

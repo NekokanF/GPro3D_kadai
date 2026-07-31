@@ -558,7 +558,7 @@ GameObject:
   - component: {fileID: 1253859651259208590}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -669,6 +669,10 @@ MonoBehaviour:
   weapon: {fileID: 11400000, guid: 0360fcd60c675804eae8d8de77856ef8, type: 2}
   Bullet: {fileID: 8712055386998380676, guid: 696bb4733ff10ed419ba4cfbd4ece67a, type: 3}
   FirePos: {fileID: 3213255734070771279}
+  CurrentHP: 0
+  CurrentSpeed: 0
+  RotateSpeed: 0
+  OnDeath: 0
   FireCooldown: 0
   OnReload: 0
   GroundLayer:
