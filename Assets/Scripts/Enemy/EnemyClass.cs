@@ -6,6 +6,7 @@ public class EnemyClass : MonoBehaviour
     [SerializeField] public int CurrentHP;
     [SerializeField] public GameObject HitPos;
     [SerializeField] public GameObject AttackPos;
+    [SerializeField] public GameObject HitEffect;
     [SerializeField] protected float searchRange = 10f;
     [SerializeField] protected float attackRange = 3f;
     [SerializeField] public float moveSpeed;

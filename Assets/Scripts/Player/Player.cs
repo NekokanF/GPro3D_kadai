@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
 
     [SerializeField] GameObject Bullet;
     [SerializeField] GameObject FirePos;
+    [SerializeField] public GameObject HitPos;
 
     [SerializeField] public int CurrentHP;
 
